@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
+import org.springframework.data.domain.Pageable;
 
 @Service
 @RequiredArgsConstructor
@@ -39,5 +39,13 @@ public class TransactionService {
     public TransactionDTO updateTransaction(long id, EditTransactionCommand command) {
         Transaction update = transactionMapper.edit(id, command);
         return transactionMapper.toDto(update);
+    }
+
+    public void delete(long id) {
+        transactionRepository.deleteById(id);
+    }
+
+    public Page<TransactionListView> findByCategoryId(long categoryId, Pageable pageable) {
+        return transactionRepository.findByCategoryId(categoryId, pageable);
     }
 }

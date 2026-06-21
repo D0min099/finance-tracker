@@ -4,10 +4,10 @@ import com.portfolio.finance_tracker.model.category.CategoryType;
 import com.portfolio.finance_tracker.model.transaction.Transaction;
 import com.portfolio.finance_tracker.model.transaction.TransactionListView;
 import com.portfolio.finance_tracker.model.transaction.TransactionType;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.domain.Page;
 
-import java.awt.print.Pageable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
@@ -16,7 +16,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     Page<TransactionListView> findAllBy(Pageable pageable);
 
-    Set<Transaction> findByCategoryId(Long categoryId);
+    Page<TransactionListView> findByCategoryId(Long categoryId, Pageable pageable);
 
     Set<Transaction> findByDescription(String description);
 
