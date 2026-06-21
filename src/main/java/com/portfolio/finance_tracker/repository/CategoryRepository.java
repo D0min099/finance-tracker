@@ -10,5 +10,6 @@ import java.util.Set;
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Set<Category> findByType(CategoryType type);
+
     Category findByTransaction(Transaction transaction);
 }

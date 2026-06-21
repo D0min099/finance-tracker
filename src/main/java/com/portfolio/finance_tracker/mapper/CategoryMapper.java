@@ -4,7 +4,9 @@ import com.portfolio.finance_tracker.model.category.Category;
 import com.portfolio.finance_tracker.model.category.CategoryDTO;
 import com.portfolio.finance_tracker.model.category.CreateCategoryCommand;
 import com.portfolio.finance_tracker.repository.CategoryRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CategoryMapper {
 
     CategoryRepository categoryRepository;

@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Value
 @Builder
-public class EdithTransactionCommand {
+public class EditTransactionCommand {
 
     String description;
     BigDecimal amount;

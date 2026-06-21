@@ -1,6 +1,5 @@
 package com.portfolio.finance_tracker.model.category;
 
-import com.portfolio.finance_tracker.model.transaction.Transaction;
 import lombok.Builder;
 import lombok.Value;
 
