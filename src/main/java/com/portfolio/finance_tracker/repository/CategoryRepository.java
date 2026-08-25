@@ -14,7 +14,6 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     Page<CategoryListView> findAllBy(Pageable pageable);
 
-    Set<Category> findByType(CategoryType type);
+    Page<CategoryListView> findByType(CategoryType type, Pageable pageable);
 
-    Category findByTransaction(Transaction transaction);
 }

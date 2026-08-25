@@ -34,6 +34,6 @@ public class Category {
     private CategoryType type;
 
     @OneToMany(mappedBy = "category")
-    private Set<Transaction> transaction;
+    private Set<Transaction> transactions;
 
 }
