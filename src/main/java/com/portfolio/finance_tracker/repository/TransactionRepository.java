@@ -18,7 +18,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
 
     Page<TransactionListView> findByCategoryId(Long categoryId, Pageable pageable);
 
-    Set<Transaction> findByDescription(String description);
+    Page<TransactionListView> findByDescription(String description, Pageable pageable);
 
     Set<Transaction> findByAmount(BigDecimal amount);
 

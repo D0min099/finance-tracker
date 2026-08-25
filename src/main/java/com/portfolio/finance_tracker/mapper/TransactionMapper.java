@@ -44,14 +44,16 @@ public class TransactionMapper {
     }
 
     public Transaction edit(long id, EditTransactionCommand command) {
+        Category category = categoryRepository.findById(command.getCategoryId())
+                .orElseThrow(() -> new CategoryNotFoundException(String.format("Category with id: %d not found", command.getCategoryId())));
+
         return transactionRepository.findById(id)
                 .map(transactionToEdit -> {
                     transactionToEdit.setDescription(command.getDescription());
                     transactionToEdit.setAmount(command.getAmount());
                     transactionToEdit.setDate(command.getDate());
                     transactionToEdit.setType(command.getType());
-                    transactionToEdit.setCategory(categoryRepository.findById(command.getCategoryId())
-                            .orElseThrow(() -> new CategoryNotFoundException(String.format("Category with id: %d not found", command.getCategoryId()))));
+                    transactionToEdit.setCategory(category);
                     return transactionToEdit;
 
                 }).orElseThrow(() -> new TransactionNotFoundException(String.format("Transaction with id: %d not found", id)));

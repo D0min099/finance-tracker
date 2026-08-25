@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public interface TransactionListView {
 
-    long getIf();
+    long getId();
     String shortName();
     BigDecimal amount();
     LocalDate date();

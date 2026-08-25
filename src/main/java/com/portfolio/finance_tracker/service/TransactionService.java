@@ -8,6 +8,7 @@ import com.portfolio.finance_tracker.model.transaction.Transaction;
 import com.portfolio.finance_tracker.model.transaction.TransactionDTO;
 import com.portfolio.finance_tracker.model.transaction.TransactionListView;
 import com.portfolio.finance_tracker.repository.TransactionRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ public class TransactionService {
         return transactionMapper.toDto(transaction);
     }
 
+    @Transactional
     public Page<TransactionListView> findAllBy(Pageable pageable) {
         return transactionRepository.findAllBy(pageable);
     }
@@ -36,6 +38,7 @@ public class TransactionService {
                 .orElseThrow(() -> new TransactionNotFoundException(String.valueOf("Transaction with id: %d not found!")));
     }
 
+    @Transactional
     public TransactionDTO updateTransaction(long id, EditTransactionCommand command) {
         Transaction update = transactionMapper.edit(id, command);
         return transactionMapper.toDto(update);
@@ -47,5 +50,9 @@ public class TransactionService {
 
     public Page<TransactionListView> findByCategoryId(long categoryId, Pageable pageable) {
         return transactionRepository.findByCategoryId(categoryId, pageable);
+    }
+
+    public Page<TransactionListView> findByDescription(String description, Pageable pageable){
+        return transactionRepository.findByDescription(description, pageable);
     }
 }

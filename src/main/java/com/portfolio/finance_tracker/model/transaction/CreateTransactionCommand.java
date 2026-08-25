@@ -10,7 +10,6 @@ import java.time.LocalDate;
 @Builder
 public class CreateTransactionCommand {
 
-    Long id;
     String description;
     BigDecimal amount;
     LocalDate date;
