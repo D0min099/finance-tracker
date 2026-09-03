@@ -8,7 +8,6 @@ import com.portfolio.finance_tracker.model.category.CategoryListView;
 import com.portfolio.finance_tracker.model.category.CategoryType;
 import com.portfolio.finance_tracker.model.category.CreateCategoryCommand;
 import com.portfolio.finance_tracker.model.category.EditCategoryCommand;
-import com.portfolio.finance_tracker.model.transaction.Transaction;
 import com.portfolio.finance_tracker.repository.CategoryRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

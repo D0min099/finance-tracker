@@ -6,16 +6,13 @@
 
     <changeSet id="2" author="Dominik">
         <loadData encoding="UTF-8"
-                  file="db/changelog/data/category.csv"
+                  file="db/data/categories.csv"
                   quotechar="&quot;"
                   separator=","
-                  tableName="category">
+                  tableName="categories">
             <column header="id" name="id"/>
             <column header="name" name="name"/>
             <column header="type" name="type"/>
         </loadData>
     </changeSet>
-
-
-
 </databaseChangeLog>
