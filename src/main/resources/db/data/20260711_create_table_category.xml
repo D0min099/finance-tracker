@@ -7,7 +7,9 @@
 
     <changeSet id="1" author="Dominik">
         <createTable tableName="categories">
-            <column name="id" type="bigint" autoIncrement="true">
+            <column name="id"
+                    type="bigint"
+                    autoIncrement="true">
                 <constraints primaryKey="true"
                              nullable="false"/>
             </column>
@@ -17,7 +19,11 @@
             </column>
             <column name="type"
                     type="varchar(20)">
-                    <constraints checkConstraint="type IN('FOOD', 'TRANSPORT', 'HEALTH', 'SALARY', 'ENTERTAINMENT', 'HOME', 'OTHER')"/>
+                    <constraints checkConstraint="type IN('FOOD', 'TRANSPORT', 'HEALTH', 'SALARY', 'ENTERTAINMENT', 'HOME', 'OTHER')"
+                                 nullable="false"/>
+<!--
+                checkConstraint doesn't work in current config. To be checked after moving to PostgreSQL
+-->
             </column>
         </createTable>
     </changeSet>
